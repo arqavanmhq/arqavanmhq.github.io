@@ -465,7 +465,37 @@ footer {
 .footer-divider {
   width:100%;height:1px;background:rgba(255,255,255,0.1);
 }
+.video-play-icon{
 
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    color:white;
+
+    transition:.3s ease;
+
+    pointer-events:none;
+}
 /* ── MEDIA QUERIES (RESPONSIVE DESIGN) ── */
 @media (max-width: 1200px) {
   .nav-inner { padding: 0 40px; }
@@ -581,6 +611,9 @@ footer {
       <div class="work-card" onclick="openVideo('https://res.cloudinary.com/dnpjq9qzk/video/upload/v1780413413/blu-video_s5omma.mp4')">
        <div class="work-card-img-wrap">
          <img class="project-cover" src="assets/blu-cover.webp" loading="lazy" decoding="async" alt="Blu">
+         <div class="video-play-icon">
+         ▶
+         </div>
          <video class="project-video" muted loop playsinline>
            <source src="https://res.cloudinary.com/dnpjq9qzk/video/upload/v1780413413/blu-video_s5omma.mp4" type="video/mp4">
          </video>
@@ -597,6 +630,9 @@ footer {
       <div class="work-card" onclick="openVideo('https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780421465/The_tone_shifts_1080p_202601222230_p4myw4.mp4')">
        <div class="work-card-img-wrap">
          <img class="project-cover" src="assets/gucci-cover.webp" loading="lazy" decoding="async" alt="gucci">
+         <div class="video-play-icon">
+         ▶
+         </div>
          <video class="project-video" muted loop playsinline>
            <source src="https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780421465/The_tone_shifts_1080p_202601222230_p4myw4.mp4" type="video/mp4">
          </video>
@@ -613,6 +649,9 @@ footer {
       <div class="work-card" onclick="openVideo('https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780423302/kfccc_f6soxu.mp4')">
        <div class="work-card-img-wrap">
          <img class="project-cover" src="assets/kfc-cover.webp" loading="lazy" decoding="async" alt="kfc">
+         <div class="video-play-icon">
+         ▶
+         </div>
          <video class="project-video" muted loop playsinline>
            <source src="https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780423302/kfccc_f6soxu.mp4" type="video/mp4">
          </video>
@@ -629,6 +668,9 @@ footer {
       <div class="work-card" onclick="openVideo('https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780420606/kixmax-video_mvfu9w.mp4')">
        <div class="work-card-img-wrap">
          <img class="project-cover" src="assets/kixmax-cover.webp" loading="lazy" decoding="async" alt="kixmax">
+         <div class="video-play-icon">
+         ▶
+         </div>
          <video class="project-video" muted loop playsinline>
            <source src="https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780420606/kixmax-video_mvfu9w.mp4" type="video/mp4">
          </video>
@@ -645,6 +687,9 @@ footer {
       <div class="work-card" onclick="openVideo('https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780421271/This_is_a_1080p_202601061459_4_l9be3z.mp4')">
        <div class="work-card-img-wrap">
          <img class="project-cover" src="assets/fedox-cover.webp" loading="lazy" decoding="async" alt="Fedox">
+         <div class="video-play-icon">
+         ▶
+         </div>
          <video class="project-video" muted loop playsinline>
            <source src="https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780421271/This_is_a_1080p_202601061459_4_l9be3z.mp4" type="video/mp4">
          </video>
@@ -661,6 +706,9 @@ footer {
       <div class="work-card" onclick="openVideo('assets/https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780420177/deliplus-video_u41y31.mp4deliplus-video.mp4')">
        <div class="work-card-img-wrap">
          <img class="project-cover" src="assets/deliplus-cover.webp" loading="lazy" decoding="async" alt="deliplus">
+         <div class="video-play-icon">
+         ▶
+         </div>
          <video class="project-video" muted loop playsinline>
            <source src="https://res.cloudinary.com/dnpjq9qzk/video/upload/q_auto/f_auto/v1780420177/deliplus-video_u41y31.mp4" type="video/mp4">
          </video>
