@@ -172,17 +172,17 @@ body::after{
   font-size:clamp(46px,7.4vw,124px);line-height:.9;letter-spacing:-.025em;
 }
 .hero h1 span{display:block}
-.hero-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:end;margin-top:auto;padding-top:24px}
+.hero-body{width:100%;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,56px);align-items:end;margin-top:auto;padding-top:24px}
 .hero-text{display:flex;flex-direction:column;gap:28px;padding-bottom:36px}
 .hero-text .lede{color:rgba(242,238,249,.86)}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hero-stage{position:relative;margin-right:calc(var(--gutter) * -0.6);padding-bottom:14px}
+.hero-stage{position:relative;width:100%;max-width:540px;justify-self:end;padding-bottom:14px}
 .hero-stage::after{content:"";position:absolute;left:-40vw;right:-10vw;bottom:10px;height:2px;z-index:-1;background:repeating-linear-gradient(90deg,rgba(242,238,249,.35) 0 14px,transparent 14px 26px);animation:treadmill .65s linear infinite}
 .hero-stage .bubble{left:0;top:2%}
 @media (max-width:900px){
   .hero{min-height:auto}
   .hero-body{grid-template-columns:1fr}
-  .hero-stage{margin:0 -4% 0 -2%}
+  .hero-stage{max-width:380px;justify-self:center}
   .hero-text{padding-bottom:0}
 }
 
@@ -272,9 +272,6 @@ body::after{
 .process{position:relative;height:260vh}
 .proc-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:70px}
 .timeline{margin-top:clamp(90px,10vw,130px);user-select:none}
-.ruler{position:relative;height:28px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;font-size:13px;font-variant-numeric:tabular-nums;color:rgba(23,24,74,.55)}
-.ruler span{position:relative;padding-left:6px}
-.ruler span::before{content:"";position:absolute;left:0;bottom:-2px;width:2px;height:10px;background:var(--ink)}
 .track{position:relative;display:flex;gap:6px;margin-top:14px;height:clamp(64px,8vw,92px)}
 .clip{
   position:relative;flex:var(--w) 1 0;border-radius:14px;padding:12px 14px;overflow:hidden;
@@ -284,7 +281,6 @@ body::after{
 }
 .clip:not(.on){filter:saturate(.35) opacity(.6)}
 .clip.on{transform:translateY(-4px)}
-.track-label{position:absolute;left:-2px;top:-24px;font-size:13px;color:rgba(23,24,74,.55)}
 .playhead{position:absolute;top:-6px;bottom:-14px;width:3px;margin-left:-1.5px;background:#e2463b;z-index:3;pointer-events:none;left:0}
 .rider{position:absolute;bottom:calc(100% + 18px);left:50%;width:clamp(70px,6.4vw,92px);transform:translateX(-50%)}
 .rider .fig img{filter:drop-shadow(0 8px 10px rgba(23,24,74,.3))}
@@ -319,8 +315,8 @@ body::after{
 
 /* ═══════════════ ABOUT — clay pink, like the mascot ═══════════════ */
 .about{padding-block:clamp(80px,10vw,140px)}
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,100px);align-items:center}
-.portrait{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--clay-deep);
+.about-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(40px,6vw,100px);align-items:center}
+.portrait{position:relative;width:100%;max-width:340px;justify-self:center;aspect-ratio:4/5;overflow:hidden;background:var(--clay-deep);
   border-radius:46% 54% 44% 56% / 52% 44% 56% 48%}
 .portrait img{width:100%;height:100%;object-fit:cover}
 .portrait-ph{display:none;position:absolute;inset:0}
@@ -333,7 +329,7 @@ body::after{
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 32px;margin-top:40px}
 .facts dt{font-size:14px;color:rgba(23,24,74,.62)}
 .facts dd{font-size:19px;font-weight:700;font-variation-settings:"wdth" 88;margin-top:2px}
-@media (max-width:860px){.about-grid{grid-template-columns:1fr}.portrait{max-width:380px}}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.portrait{max-width:260px;justify-self:start}}
 
 /* ═══════════════ WORDS ═══════════════ */
 .words{padding-block:0 clamp(80px,10vw,140px)}
@@ -345,11 +341,6 @@ body::after{
 
 /* ═══════════════ CONTACT ═══════════════ */
 .contact{position:relative;overflow:hidden;padding-top:clamp(90px,12vw,160px)}
-.contact-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
-.hello{position:relative;width:min(100%,460px);justify-self:end}
-.hello .bubble{left:-4%;top:6%}
-.hello .fig img{filter:drop-shadow(0 30px 40px rgba(8,8,40,.45))}
-@media (max-width:860px){.contact-grid{grid-template-columns:1fr}.hello{justify-self:start;width:min(80%,340px)}}
 .contact h2{color:var(--clay);font-weight:800;font-variation-settings:"wdth" 76,"opsz" 96;font-size:clamp(48px,9vw,140px);line-height:.9;letter-spacing:-.025em;max-width:11ch}
 .contact .lede{margin-top:28px;color:rgba(242,238,249,.8)}
 .mail{display:inline-block;margin-top:40px;font-size:clamp(22px,2.9vw,42px);font-weight:700;font-variation-settings:"wdth" 82;color:var(--butter);text-decoration:none;
@@ -359,8 +350,8 @@ body::after{
 .phone{display:block;margin-top:16px;color:rgba(242,238,249,.7);text-decoration:none}
 
 /* the mascot hauls its bundle across the bottom of the page now and then */
-.parade{position:relative;height:clamp(150px,17vw,230px);margin-top:clamp(60px,8vw,100px)}
-.parade .fig{position:absolute;bottom:4px;left:100%;width:clamp(220px,26vw,360px)}
+.parade{position:relative;height:clamp(110px,12vw,160px);margin-top:clamp(60px,8vw,100px)}
+.parade .fig{position:absolute;bottom:4px;left:100%;width:clamp(160px,17vw,240px)}
 .parade .fig{animation:parade 22s linear infinite;animation-play-state:paused}
 .parade.walking .fig{animation-play-state:running}
 @keyframes parade{
@@ -374,12 +365,6 @@ body::after{
 .socials a{text-decoration:none}
 .socials a:hover{color:var(--paper)}
 
-/* back to top — the mascot's head */
-.to-top{position:fixed;right:18px;bottom:18px;z-index:55;padding:4px;border-radius:50%;background:var(--paper);box-shadow:0 10px 24px -8px rgba(23,24,74,.5);
-  opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .45s var(--ease)}
-.to-top.show{opacity:1;transform:none;pointer-events:auto}
-.to-top .head{width:54px;height:54px;transition:transform .35s var(--ease)}
-.to-top:hover .head{transform:translateY(-4px)}
 
 /* ═══════════════ MODALS ═══════════════ */
 .modal{position:fixed;inset:0;z-index:100;background:rgba(19,20,62,.97);display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,40px);
@@ -449,7 +434,7 @@ body::after{
   </div>
   <div class="wrap hero-body">
     <div class="hero-text">
-      <p class="lede">I’m Arghavan Mohaqeq, an AI film director and AI motion designer. I make commercials, narrative films and series, directed shot by shot and finished in post.</p>
+      <p class="lede">I’m Arghavan Mohaqeq, an AI film director and motion designer. I make commercials, narrative films and series, directed shot by shot and finished in post.</p>
       <div class="hero-ctas">
         <a href="#work" class="btn btn-butter">See the work</a>
       </div>
@@ -499,8 +484,7 @@ body::after{
     <div class="wrap">
       <h2 class="title">How a film gets made</h2>
       <div class="timeline" aria-hidden="true">
-        <div class="ruler" id="ruler"></div>
-        <div class="track" id="track"><span class="track-label">V1</span><span class="playhead" id="playhead"><span class="rider" id="rider"><div data-fig="hello"></div></span></span></div>
+        <div class="track" id="track"><span class="playhead" id="playhead"><span class="rider" id="rider"><div data-fig="hello"></div></span></span></div>
       </div>
       <div class="step-now" id="stepNow" aria-live="polite"></div>
       <ol class="proc-list" id="procList"></ol>
@@ -548,18 +532,12 @@ body::after{
 
 <!-- ═══════════════ CONTACT ═══════════════ -->
 <section class="contact on-ultra" id="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <h2>Got something heavy to carry?</h2>
-      <p class="lede">Send me the brief, your timeline and a budget range. I reply within a day.</p>
-      <a class="mail" id="mail"></a>
-      <a class="phone" id="phone"></a>
-      <div class="contact-actions" id="contactActions"></div>
-    </div>
-    <div class="hello" id="hello">
-      <span class="bubble" id="helloBubble"></span>
-      <div data-fig="hello" data-alt="Arghavan's clay mascot looking at you"></div>
-    </div>
+  <div class="wrap">
+    <h2>Got something heavy to carry?</h2>
+    <p class="lede">Send me the brief, your timeline and a budget range. I reply within a day.</p>
+    <a class="mail" id="mail"></a>
+    <a class="phone" id="phone"></a>
+    <div class="contact-actions" id="contactActions"></div>
   </div>
   <div class="parade" id="parade" aria-hidden="true"><div data-fig="haul"></div></div>
   <div class="wrap">
@@ -572,7 +550,6 @@ body::after{
 
 </main>
 
-<button class="to-top" id="toTop" aria-label="Back to top"><span data-head></span></button>
 
 <!-- ═══════════════ VIDEO MODAL ═══════════════ -->
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player">
@@ -852,7 +829,6 @@ function renderBundle() {
 }
 
 function renderProcess() {
-  $('#ruler').innerHTML = ['Day 1', 'Week 1', 'Week 2', 'Week 3', 'Delivery'].map(t => `<span>${t}</span>`).join('');
   $('#track').insertAdjacentHTML('beforeend', PROCESS.map((s, i) =>
     `<span class="clip" data-i="${i}" style="--w:${s.w};background-color:${s.color}">${esc(s.title)}</span>`).join(''));
   $('#procList').innerHTML = PROCESS.map((s, i) => `<li><b>${i + 1}</b><div><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p></div></li>`).join('');
@@ -951,7 +927,6 @@ document.addEventListener('click', e => {
   if (fig) {
     hop(fig);
     if (fig.closest('#heroStage')) say($('#heroBubble'), pick(MASCOT_LINES));
-    if (fig.closest('#hello')) say($('#helloBubble'), pick(MASCOT_LINES));
     return;
   }
   const media = e.target.closest('.card-media');
@@ -968,7 +943,6 @@ document.addEventListener('click', e => {
 });
 $('#lbPrev').addEventListener('click', () => stepLb(-1));
 $('#lbNext').addEventListener('click', () => stepLb(1));
-$('#toTop').addEventListener('click', () => scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
 $('#menuBtn').addEventListener('click', () => { const o = $('#navLinks').classList.toggle('open'); $('#menuBtn').setAttribute('aria-expanded', o); });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { if (vModal.classList.contains('open')) closeVideo(); if (lb.classList.contains('open')) closeLb(); }
@@ -981,12 +955,11 @@ $('#svcList').addEventListener('pointerover', e => { const s = e.target.closest(
 $('#svcList').addEventListener('focusin', e => { const s = e.target.closest('.svc'); if (s) liftTile(s.dataset.i); });
 $('#svcList').addEventListener('pointerleave', () => liftTile(-1));
 
-/* ── Scroll: the haul, the playhead, back-to-top ── */
+/* ── Scroll: the haul and the playhead ── */
 const stage = $('#heroStage');
 const desktop = matchMedia('(min-width: 901px)');
 function onScroll() {
   const y = scrollY;
-  $('#toTop').classList.toggle('show', y > innerHeight * 1.2);
 
   // process: the playhead follows scroll through the pinned section
   const proc = $('#process');
@@ -1011,10 +984,6 @@ if ('IntersectionObserver' in window) {
   new IntersectionObserver(([en]) => {
     parade.classList.toggle('walking', en.isIntersecting && !reduceMotion);
   }, { threshold: .2 }).observe(parade);
-  // the front-facing mascot says hello when the contact section arrives
-  new IntersectionObserver(([en], o) => {
-    if (en.isIntersecting) { const f = $('#hello .fig'); setTimeout(() => { blink(f); say($('#helloBubble'), 'Got a brief? I’m all eyes.', 3600); }, 400); o.disconnect(); }
-  }, { threshold: .5 }).observe($('#hello'));
 } else { $('#pile').classList.add('tied'); }
 
 /* ── Boot ── */
