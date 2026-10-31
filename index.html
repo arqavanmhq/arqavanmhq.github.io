@@ -129,9 +129,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .modal-close svg{width:18px}
 .vm{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;max-width:1200px}
 .vm-stage{position:relative;width:100%;display:flex;justify-content:center}
-.vm-stage video,.vm-stage iframe{border:0;background:#000;max-height:78vh;width:100%}
-.vm-stage.v video,.vm-stage.v iframe{width:auto;aspect-ratio:9/16;height:78vh}
-.vm-stage.h iframe{aspect-ratio:16/9;height:auto}
+.vm-stage video,.vm-stage iframe{border:0;background:#000;display:block;max-width:100%;max-height:78vh;width:auto;height:auto}
+.vm-stage video{width:min(100%,calc(78vh * var(--r,1.778)));height:auto;aspect-ratio:var(--r,1.778)}
+.vm-stage iframe{width:100%;aspect-ratio:16/9}
+.vm-stage.v iframe{width:auto;height:78vh;aspect-ratio:9/16}
 .vm-info{color:#fff;text-align:center;max-width:60ch}
 .vm-info h3{font-weight:500;font-size:17px}
 .vm-info p{color:#aaa;font-size:14px;margin-top:4px}
@@ -152,7 +153,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .nav-links{gap:16px;font-size:14px}
   .nav-links .hide-sm{display:none}
   .grid{grid-template-columns:1fr}
-  .vm-stage.v video,.vm-stage.v iframe{height:auto;width:100%;max-height:78vh}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
 </style>
@@ -275,7 +275,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 const CONFIG = {
   email: 'arqavanmohaqeq@gmail.com',
   links: {
-    LinkedIn: 'https://www.linkedin.com/in/arghavan-mohaghegh-7718b628b/',
+    LinkedIn: 'https://www.linkedin.com/in/arghavan-mohaghegh/',
     Telegram: 'https://t.me/arqavanmohaqeq',
     Instagram: '',   // full URL; empty ones are hidden
     Behance: ''
@@ -310,7 +310,7 @@ const CATS = {
 /* ═══════════════ 3. PROJECTS ═══════════════
    cat:    one of the keys above
    o:      'h' = horizontal, 'v' = vertical (sizes the player)
-   spec:   true = self-initiated work, not a client commission (shows a "Spec" tag)
+   spec:   true = self-initiated work, not a client commission (shows an "On spec" tag)
    video:  an .mp4 link (Cloudinary etc.)  — OR —  drive: a Google Drive file ID
    cover:  image shown on the card. Drive projects use the Drive thumbnail if left empty. */
 const PROJECTS = [
@@ -320,7 +320,7 @@ const PROJECTS = [
 
   { id:'watermelon', cat:'real', o:'v', year:2026, title:'Watermelon burst',
     desc:'A photoreal portrait that breaks into a slow-motion burst of fruit.',
-    drive:'1J-HAH4cHlCBQbGhbOVxxNHyOfDl_Yg9A' },
+    video:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/b715cb28-3790-47c5-9ffa-198bb49294e7.mp4', cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/6c676996-ac1d-4dee-9145-b087c0deb333.jpg' },
 
   { id:'kixmax', cat:'musical', o:'h', spec:true, year:2026, title:'KIX MAX — brand song',
     desc:'A music-driven brand film combining animation, rhythmic poetry and tight editing.',
@@ -328,7 +328,7 @@ const PROJECTS = [
 
   { id:'potato', cat:'story', o:'v', year:2026, title:'The potato that came to Persia',
     desc:'A Qajar-era history told in painted, archival-style frames.',
-    drive:'1tVh_iPdnlf0mc_dV6OOQOXT3xIl_oLcC' },
+    video:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/07aac5d2-fdd8-42dd-adf3-978ef051855e.mp4', cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/13255ee3-39c7-4925-bb26-e8164e12ce17.jpg' },
 
   { id:'blu', cat:'anim', o:'v', spec:true, year:2026, title:'Blu Bank — bill payments',
     desc:'An animated commercial showing how Blu makes paying bills fast and effortless.',
@@ -340,7 +340,7 @@ const PROJECTS = [
 
   { id:'presenter', cat:'real', o:'v', year:2026, title:'Batabe — wedding guide',
     desc:'A photoreal AI presenter walking viewers through wedding venues and services.',
-    drive:'1UlxKPa6mSfMws6odxIfOmJ9egVKYlgP4' },
+    video:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/0c8e6f53-5258-4fd6-a810-53aed5e6cb5d.mp4', cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/648ff7ac-1853-4f6f-96ae-9327a4377774.jpg' },
 
   { id:'batabe', cat:'musical', o:'v', year:2026, title:'Batabe — musical brand film',
     desc:'A musical brand film introducing the Batabe platform through character-led animation.',
@@ -348,7 +348,7 @@ const PROJECTS = [
 
   { id:'hookah', cat:'anim', o:'v', year:2026, title:'Batabe — comic short',
     desc:'A comic-book style short that ends in the Batabe app.',
-    drive:'1E85vVY1gtWF2491T9RrrGJAeeq9T0XLV' },
+    video:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/b14bc715-ca9e-413f-b04c-fec7b8498b7e.mp4', cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/7ec54e8e-d165-42b9-be0e-8e3a6f9bb194.jpg' },
 
   { id:'kfc', cat:'story', o:'v', year:2025, title:'The KFC story',
     desc:'A narrative retelling of how KFC became one of the world’s best-known fast-food brands.',
@@ -360,7 +360,7 @@ const PROJECTS = [
 
   { id:'hands', cat:'real', o:'v', year:2026, title:'Batabe — in hand',
     desc:'A photoreal hands-and-phone spot for the Batabe app.',
-    drive:'1evsb8SNqtZJoqqLjhFmmF3-UU8LrEteH' },
+    video:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/c4e63faf-ab35-40cf-b61a-f90c32b2a469.mp4', cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_3JM9Zf3TExXXFtsrGc8W2PnGrLR/fcb2f166-b752-4aae-96b4-3fffd4774e96.jpg' },
 
   { id:'fedox', cat:'anim', o:'h', year:2025, title:'Fedox — brand character',
     desc:'An animated brand character introducing Fedox’s healthy ingredients.',
@@ -395,7 +395,7 @@ function renderGrid() {
       <button class="media" data-id="${p.id}" aria-label="Play ${esc(p.title)}">
         <img src="${esc(coverOf(p))}" alt="Still from ${esc(p.title)}" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
         ${p.video ? `<video muted loop playsinline preload="none" data-src="${esc(p.video)}"></video>` : ''}
-        ${p.spec ? '<span class="tag">Spec</span>' : ''}
+        ${p.spec ? '<span class="tag">On spec</span>' : ''}
         <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="#111"/></svg></span>
       </button>
       <div class="meta"><h3>${esc(p.title)}</h3><span>${p.year}</span></div>
@@ -434,7 +434,9 @@ function openVideo(p) {
   st.innerHTML = p.video
     ? `<video src="${esc(p.video)}" controls autoplay playsinline ${p.backup ? `onerror="this.onerror=null;this.src='${esc(p.backup)}'"` : ''}></video>`
     : `<iframe src="https://drive.google.com/file/d/${esc(p.drive)}/preview" allow="autoplay; fullscreen" allowfullscreen title="${esc(p.title)}"></iframe>`;
-  $('#vmTitle').textContent = p.title + (p.spec ? ' (spec)' : '');
+  const v = st.querySelector('video');
+  if (v) { v.style.setProperty('--r', p.o === 'v' ? 9/16 : 16/9); v.addEventListener('loadedmetadata', () => { if (v.videoWidth) v.style.setProperty('--r', v.videoWidth / v.videoHeight); }); }
+  $('#vmTitle').textContent = p.title + (p.spec ? ' — on spec' : '');
   $('#vmDesc').textContent = p.desc;
   vModal.classList.add('open'); document.body.style.overflow = 'hidden';
 }
